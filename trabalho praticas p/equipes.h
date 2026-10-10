@@ -6,5 +6,6 @@ int configI(void);
 int configII(void);
 void menu(void);
 int selecao(void);
+int registrarResultados(int equipes, int jogos);
 
 #endif

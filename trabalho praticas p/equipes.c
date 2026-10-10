@@ -2,11 +2,14 @@
 #include "equipes.h"
 
 void bemVindo(void) {
-	printf("============================================\n");
+	printf("\n============================================\n");
 	printf("CONTROLE DE CAMPEONATOS\n");
 	printf("============================================");
 	
 }
+
+
+
 
 int configI(void) {
 	int equipes;
@@ -15,7 +18,7 @@ int configI(void) {
 	scanf("%d", &equipes);
 	
 	while(equipes < 3 || equipes > 10) {
-		printf("Valor nao esta entre 3 e 10\n");
+		printf("Quantidade de equipes nao esta entre 3 e 10\n");
 		printf("Tente novamente: ");
 		
 		scanf("%d", &equipes);
@@ -99,4 +102,12 @@ int selecao(void) {
 
 
 
-
+int registrarResultados(int equipes, int jogos) {
+	int i;
+	int resultados;
+	
+	for (i =1; i<= equipes; i++) {
+		printf("\nEquipe %d", i);
+	}
+	
+}

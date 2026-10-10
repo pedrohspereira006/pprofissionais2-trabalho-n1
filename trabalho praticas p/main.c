@@ -15,6 +15,9 @@ int main () {
 		opcao = selecao();
 		} while(opcao < 1 || opcao > 5);
 		
+		if(opcao == 1) {
+			registrarResultados(equipes, jogos);
+		}
 	}
 	
 	while (opcao != 5);
