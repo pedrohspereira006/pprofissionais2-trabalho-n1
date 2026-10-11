@@ -65,7 +65,6 @@ void menu(void) {
 int selecao(void) {
 	int opcao;
 	
-	printf("\nDigite a opcao desejada: ");
 	scanf("%d", &opcao);
 	
 	switch(opcao) {
@@ -102,15 +101,23 @@ int selecao(void) {
 
 
 
+
+
 int registrarResultados(int equipes, int jogos) {
 	int i;
 	int vitoria, empate, derrota;
-	int resultados;
+	int pontosV, pontosE, pontosD, situacao;
+	int resultados, total;
+	
+	
+	for (i =1; i<= equipes; i++) {
 	
 	do {
-	for (i =1; i<= equipes; i++) {
-		printf("\nEquipe %d", i);
-		printf("\nDigite a quantidade de vitorias: ");
+		printf("\n============================================\n");
+		printf("EQUIPE %d\n", i);
+		printf("============================================");
+
+		printf("\nVitorias: ");
 		scanf("%d", &vitoria);
 		
 		while(vitoria < 0){
@@ -119,8 +126,13 @@ int registrarResultados(int equipes, int jogos) {
 			scanf("%d", &vitoria);
 		}
 		
+		if (vitoria>=0) {
+			pontosV = 3 * vitoria;
+		}
 		
-		printf("\nDigite a quantidade de empates: ");
+		
+		
+		printf("\nEmpates: ");
 		scanf(" %d", &empate);
 		
 		while(empate < 0) {
@@ -129,8 +141,13 @@ int registrarResultados(int equipes, int jogos) {
 			scanf("%d", &empate);
 		}
 		
+		if (empate>=0) {
+			pontosE = 1 * empate;
+		}
 		
-		printf("\nDigite a quantidade de derrotas: ");
+		
+		
+		printf("\nDerrotas: ");
 		scanf(" %d", &derrota);
 		
 		while(derrota < 0) {
@@ -139,14 +156,33 @@ int registrarResultados(int equipes, int jogos) {
 			scanf("%d", &derrota);
 		}
 		
+		if (derrota>=0) {
+			pontosD = 0;
+		}
+	
+	total = pontosV + pontosE + pontosD;
 	resultados = vitoria + empate + derrota;
+	
 	if(resultados !=jogos) {
-		printf("\nATENCAO!\n ");
-		printf("O resultado nao corresponde ao total de jogos ");
-		printf("\nInforme os demais dados e tente novamente\n");
+		printf("\nATENCAO! ");
+		printf("\nO resultado nao corresponde ao total de jogos ");
+		printf("\nInforme os dados da Equipe %d novamente\n", i);
+	} else {
+		printf("\nPontuacao: %d pontos\n ", total);
 	}
-
+	
+	if(total >= 15) {
+		printf("Excelente campanha\n");
+	} else if(total >= 10 && total <=14) {
+		printf("Boa campanha\n");
+		} else if(total >= 5 && total <=9) {
+			printf("Campanha regular\n");
+		} else {
+			printf("Campanha ruim\n");
+		}
+		
 	}
-} while(resultados !=jogos);
+	while(resultados !=jogos);
+}
 
 }
