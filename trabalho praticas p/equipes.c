@@ -104,10 +104,49 @@ int selecao(void) {
 
 int registrarResultados(int equipes, int jogos) {
 	int i;
+	int vitoria, empate, derrota;
 	int resultados;
 	
+	do {
 	for (i =1; i<= equipes; i++) {
 		printf("\nEquipe %d", i);
+		printf("\nDigite a quantidade de vitorias: ");
+		scanf("%d", &vitoria);
+		
+		while(vitoria < 0){
+			printf("Valor invalido\n");
+			printf("Insira novamente: ");
+			scanf("%d", &vitoria);
+		}
+		
+		
+		printf("\nDigite a quantidade de empates: ");
+		scanf(" %d", &empate);
+		
+		while(empate < 0) {
+			printf("Valor invalido\n");
+			printf("Insira novamente: ");
+			scanf("%d", &empate);
+		}
+		
+		
+		printf("\nDigite a quantidade de derrotas: ");
+		scanf(" %d", &derrota);
+		
+		while(derrota < 0) {
+			printf("Valor invalido\n");
+			printf("Insira novamente: ");
+			scanf("%d", &derrota);
+		}
+		
+	resultados = vitoria + empate + derrota;
+	if(resultados !=jogos) {
+		printf("\nATENCAO!\n ");
+		printf("O resultado nao corresponde ao total de jogos ");
+		printf("\nInforme os demais dados e tente novamente\n");
 	}
-	
+
+	}
+} while(resultados !=jogos);
+
 }
